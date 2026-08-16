@@ -24,9 +24,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install pyinstaller customtkinter pillow babel tkcalendar
 
-      - name: Build EXE
+      - name: Build EXE with PyInstaller
         run: |
-          pyinstaller --noconsole --onefile --collect-all customtkinter main.py
+          pyinstaller --noconsole --onefile --collect-all customtkinter --add-data "2.jpeg;." --add-data "3.jpeg;." --add-data "images.jpeg;." --add-data "logo.jpeg;." --add-data "pos_database_v2.db;." main.py
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4
