@@ -26,10 +26,11 @@ jobs:
 
       - name: Build EXE with PyInstaller
         run: |
+          cd Desktop/Supermarket_Py
           pyinstaller --noconsole --onefile --collect-all customtkinter --add-data "2.jpeg;." --add-data "3.jpeg;." --add-data "images.jpeg;." --add-data "logo.jpeg;." --add-data "pos_database_v2.db;." main.py
 
       - name: Upload Executable
         uses: actions/upload-artifact@v4
         with:
           name: Supermarket-POS-Windows
-          path: dist/*.exe
+          path: Desktop/Supermarket_Py/dist/*.exe
